@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -21,6 +22,10 @@ class AuthController extends Controller
             'password' => Hash::make($request->input('password')),
             'phone' => $request->input('phone'),
         ]);
+        Mail::send('email',['customer'=>$customer], function ($email) use ($customer) {
+            $email->from('danghoangjp1990@gmail.com','Web tim viec');
+            $email->to($customer->email,$customer->name)->subject('Đăng ký thành công!');
+        });
         return $customer;
     }
 

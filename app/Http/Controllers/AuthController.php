@@ -3,38 +3,49 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\RegisterCustomerRequest;
 use App\Models\Customer;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Mail;
-
 
 
 class AuthController extends Controller
 {
     public function registerCustomer(RegisterCustomerRequest $request)
     {
-        $customer = Customer::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
-            'phone' => $request->input('phone'),
+        try {
+            $customer = Customer::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($request->input('password')),
+                'phone' => $request->input('phone'),
+            ]);
+            Mail::send('email',['customer'=>$customer], function ($email) use ($customer) {
+                $email->from('danghoangjp1990@gmail.com','Web tim viec');
+                $email->to($customer->email,$customer->name)->subject('Đăng ký thành công!');
+            });
+        }catch (Exception $exception){
+            return response()->json($data = [
+                'status'=>'error',
+                'message'=>'Email đã tồn tại !'
+            ]);
+        }
+        return response()->json($data = [
+            'status'=>'success',
+            'message'=>'Đăng ký thành công!'
         ]);
-        Mail::send('email',['customer'=>$customer], function ($email) use ($customer) {
-            $email->from('danghoangjp1990@gmail.com','Web tim viec');
-            $email->to($customer->email,$customer->name)->subject('Đăng ký thành công!');
-        });
-        return $customer;
     }
 
     public function loginCustomer(Request $request)
     {
        if (!Auth::guard('customer')->attempt($request->only('email','password'))) {
-           return response([
-              'message' => 'Invalid credentials'
-           ], Response::HTTP_UNAUTHORIZED);
+           $data = [
+               'status'=>'error',
+               'message'=>'Tài khoản hoặc mật khẩu không đúng !'
+           ];
+           return response()->json($data);
        }
        $customer = Auth::guard('customer')->user();
 
@@ -44,7 +55,9 @@ class AuthController extends Controller
 
        return response([
            'status' => 'Success',
-           'message' => $token
+           'message' => 'Đăng nhập thành công !',
+           'token' => $token,
+           'data'=>$customer
        ])->cookie($cookie);
     }
 

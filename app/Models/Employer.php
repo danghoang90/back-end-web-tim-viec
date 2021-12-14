@@ -18,9 +18,8 @@ class Employer extends Authenticatable
         'contact_person_name',
         'phone_number',
         'name_employer',
-        'address-employer',
-        'city',
-        'status',
+        'address_employer',
+        'city'
     ];
 
     protected $hidden = [

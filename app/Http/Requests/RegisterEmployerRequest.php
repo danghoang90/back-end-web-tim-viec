@@ -29,9 +29,11 @@ class RegisterEmployerRequest extends FormRequest
             'contact_person_name'=> 'required|string|max:255',
             'phone_number'=> 'required|string|min:10',
             'name_employer' => 'required|string|max:255',
-            'address-employer'=> 'required|string|max:255',
+            'address_employer'=> 'required|string|max:255',
             'city'=> 'required|string|max:255',
-            'status'=> 'required|string|max:255'
+            'status'=> 'required'
+
         ];
     }
+
 }

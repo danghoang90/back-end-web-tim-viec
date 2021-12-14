@@ -50,11 +50,11 @@ return [
         ],
         'employer' => [
             'driver' => 'session',
-            'provider' => 'customers',
+            'provider' => 'employers',
         ],
         'employer-api' => [
             'driver' => 'token',
-            'provider' => 'customers',
+            'provider' => 'employers',
         ],
     ],
 

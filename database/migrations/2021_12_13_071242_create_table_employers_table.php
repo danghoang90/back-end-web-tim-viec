@@ -20,7 +20,7 @@ class CreateTableEmployersTable extends Migration
             $table->string('contact_person_name');
             $table->string('phone_number');
             $table->string('name_employer')->unique();
-            $table->string('address-employer');
+            $table->string('address_employer');
             $table->string('city');
             $table->string('status')->default('2');
             $table->timestamps();

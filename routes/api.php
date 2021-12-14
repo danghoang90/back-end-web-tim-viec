@@ -17,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [AuthController::class,'registerCustomer']);
 Route::post('login', [AuthController::class,'loginCustomer']);
+Route::post('register-employer', [AuthController::class,'registerEmployer']);
+Route::post('login-employer', [AuthController::class,'loginEmployer']);
 
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('customer', [AuthController::class,'customer']);
     Route::get('logout', [AuthController::class,'logoutCustomer']);
+    Route::get('employer', [AuthController::class,'employer']);
+    Route::get('logout-employer', [AuthController::class,'logoutEmployer']);
 
 });
 

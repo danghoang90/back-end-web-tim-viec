@@ -24,4 +24,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('logout', [AuthController::class,'logoutCustomer']);
 
 });
+Route::post('create-post',[\App\Http\Controllers\PostController::class,'createPost']);
+Route::get('list-post',[\App\Http\Controllers\PostController::class,'getList']);
+Route::get('update-post/{id}',[\App\Http\Controllers\PostController::class,'update']);
+Route::post('edit-post/{id}',[\App\Http\Controllers\PostController::class,'edit']);
+Route::get('delete/{id}', [\App\Http\Controllers\PostController::class, 'destroy']);
+Route::get('cities', [\App\Http\Controllers\PostController::class, 'getCity']);
+Route::get('jobs', [\App\Http\Controllers\PostController::class, 'getJob']);
 

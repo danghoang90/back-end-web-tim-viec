@@ -109,6 +109,7 @@ class AuthController extends Controller
 
     public function loginEmployer(Request $request)
     {
+
         if (!Auth::guard('employer')->attempt($request->only('email', 'password'))) {
             $data = [
                 'status' => 'error',

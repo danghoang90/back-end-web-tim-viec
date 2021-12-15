@@ -20,7 +20,7 @@ class CustomerController extends Controller
 
     public function destroy($id)
     {
-        $customer = Customer::findOrFail($id);
+        $customer = Customer::find($id);
         if (!$customer) {
             $data = [
                 'status' =>'errors',
@@ -39,17 +39,25 @@ class CustomerController extends Controller
 
     public function update($id)
     {
-        $customer = Customer::findOrFail($id);
-        return response()->json($data = [
-            'status' => 'success',
-            'data' => $customer
-        ]);
+        $customer = Customer::find($id);
+        if (!$customer) {
+            $data = [
+                'status' =>'errors',
+                'message' =>'customer not exits'
+            ];
+        }else {
+            $data = [
+                'status' => 'success',
+                'data' => $customer
+            ];
+        }
+        return response()->json($data);
     }
 
     public function edit(RegisterCustomerRequest $request,$id)
     {
         try {
-            $customer = Customer::findOrFail($id);
+            $customer = Customer::find($id);
             $customer->name = $request->name;
             $customer->email = $request->email;
             $customer->password = $request->password;

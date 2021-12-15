@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterCustomerRequest;
+use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
@@ -54,13 +55,12 @@ class CustomerController extends Controller
         return response()->json($data);
     }
 
-    public function edit(RegisterCustomerRequest $request,$id)
+    public function edit(UpdateCustomerRequest $request,$id)
     {
         try {
             $customer = Customer::find($id);
             $customer->name = $request->name;
             $customer->email = $request->email;
-            $customer->password = $request->password;
             $customer->phone = $request->phone;
             $customer->save();
         }catch (\Exception $exception) {

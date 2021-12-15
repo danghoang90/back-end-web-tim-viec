@@ -17,14 +17,19 @@ class JobSeeder extends Seeder
     {
         $jobs = [
             [
-                'id' => 1,
-                'name' => 'Full time',
-                'code' => '....',
+                'name' => 'Nhân viên chính thức',
             ],
             [
-                'id' => 2,
-                'name' => 'Part time',
-                'code' => '....',
+                'name' => 'Nhân viên thời vụ',
+            ],
+            [
+                'name' => 'Bán thời gian',
+            ],
+            [
+                'name' => 'Làm thêm ngoài giờ',
+            ],
+            [
+                'name' => 'Thực tập và dự án',
             ],
         ];
 

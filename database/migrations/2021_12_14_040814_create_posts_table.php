@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->string('description');
             $table->string('quantity');
             $table->string('gender');
+            $table->string('status')->default('1');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('job_id');
             $table->timestamps();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateEmployerRequest;
 use App\Models\Employer;
 use Illuminate\Http\Request;
 
@@ -53,7 +54,7 @@ class EmployerController extends Controller
         return response()->json($data);
     }
 
-    public function edit(Request $request,$id)
+    public function edit(UpdateEmployerRequest $request,$id)
     {
         try {
             $employer = Employer::find($id);
@@ -63,6 +64,7 @@ class EmployerController extends Controller
             $employer->name_employer = $request->name_employer;
             $employer->address_employer = $request->address_employer;
             $employer->city = $request->city;
+            $employer->status = $request->status;
             $employer->save();
         }catch (\Exception $exception) {
             $data = [

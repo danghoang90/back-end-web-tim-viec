@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +36,11 @@ Route::post('edit-post/{id}',[\App\Http\Controllers\PostController::class,'edit'
 Route::get('delete/{id}', [\App\Http\Controllers\PostController::class, 'destroy']);
 Route::get('cities', [\App\Http\Controllers\PostController::class, 'getCity']);
 Route::get('jobs', [\App\Http\Controllers\PostController::class, 'getJob']);
+
+Route::prefix('customers')->group(function () {
+    Route::get('list',[CustomerController::class,'list']);
+    Route::get('delete/{id}',[CustomerController::class,'destroy']);
+    Route::get('update/{id}',[CustomerController::class,'update']);
+    Route::post('edit/{id}',[CustomerController::class,'edit']);
+});
 

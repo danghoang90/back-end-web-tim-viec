@@ -46,13 +46,12 @@ class CustomerController extends Controller
         ]);
     }
 
-    public function edit(RegisterCustomerRequest $request,$id)
+    public function edit(Request $request,$id)
     {
         try {
             $customer = Customer::findOrFail($id);
             $customer->name = $request->name;
             $customer->email = $request->email;
-            $customer->password = $request->password;
             $customer->phone = $request->phone;
             $customer->save();
         }catch (\Exception $exception) {

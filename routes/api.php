@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EmployerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,5 +43,12 @@ Route::prefix('customers')->group(function () {
     Route::get('delete/{id}',[CustomerController::class,'destroy']);
     Route::get('update/{id}',[CustomerController::class,'update']);
     Route::post('edit/{id}',[CustomerController::class,'edit']);
+});
+
+Route::prefix('employers')->group(function () {
+    Route::get('list',[EmployerController::class,'list']);
+    Route::get('delete/{id}',[EmployerController::class,'destroy']);
+    Route::get('update/{id}',[EmployerController::class,'update']);
+    Route::post('edit/{id}',[EmployerController::class,'edit']);
 });
 

@@ -29,7 +29,7 @@ class PostController extends Controller
 
         try {
             $post = new Post();
-            $post->code = $request->code;
+            $post->code = "CODE".rand(1,50000);
             $post->title = $request->title;
             $post->salary = $request->salary;
             $post->position = $request->position;
@@ -45,13 +45,13 @@ class PostController extends Controller
         }catch (\Exception $exception) {
             $data = [
                 'status' => 'error',
-                'message' => 'Không thể thêm bài Post'
+                'message' => 'Không thể thêm bài.'
             ];
             return response()->json($data);
         }
         $data = [
             'status' => 'success',
-            'message' => 'Add User Successfully'
+            'message' => 'Đăng bài thành công !'
         ];
         return response()->json($data);
     }
@@ -98,13 +98,13 @@ class PostController extends Controller
         }catch (\Exception $exception) {
             $data = [
                 'status' => 'error',
-                'message' => 'Không thể update bài Post'
+                'message' => 'Cập nhật thất bại .'
             ];
             return response()->json($data);
         }
         $data = [
             'status' => 'success',
-            'message' => 'Update Post Successfully'
+            'message' => 'Cập nhật thành công !'
         ];
         return response()->json($data);
     }
@@ -115,13 +115,13 @@ class PostController extends Controller
         if(!$post) {
             $data = [
                 'status' =>'errors',
-                'message' =>'user not exits'
+                'message' =>'Không có bài '
             ];
         }else {
             $post->delete();
             $data = [
                 'status' =>'success',
-                'message' =>'user delete successfully',
+                'message' =>'Xóa thành công !',
                 'posts' => Post::with(['city','job'])->get()
             ];
         }

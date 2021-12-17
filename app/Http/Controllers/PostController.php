@@ -15,7 +15,7 @@ class PostController extends Controller
 {
     public function getList()
     {
-        $post = Post::with(['city', 'job'])->get();
+        $post = Post::with(['city', 'job','employer'])->get();
         return response()->json($data = [
             'status' => 'success',
             'message' => 'list post',
@@ -26,10 +26,9 @@ class PostController extends Controller
 
     public function createPost(CreatePostRequest $request)
     {
-
         try {
             $post = new Post();
-            $post->code = "CODE".rand(1,50000);
+            $post->code = rand(1,50000)."CODE".rand(1,50000);
             $post->title = $request->title;
             $post->salary = $request->salary;
             $post->position = $request->position;
@@ -41,6 +40,7 @@ class PostController extends Controller
             $post->status = $request->status;
             $post->city_id = $request->city_id;
             $post->job_id = $request->job_id;
+            $post->employer_id = $request->employer_id;
             $post->save();
 
         }catch (\Exception $exception) {
@@ -70,7 +70,7 @@ class PostController extends Controller
 
     public function update($id)
     {
-        $post = Post::with(['city','job'])->findOrFail($id);
+        $post = Post::with(['city','job','employer'])->findOrFail($id);
 
         return response()->json($data = [
             'status' => 'success',
@@ -82,7 +82,7 @@ class PostController extends Controller
     {
 
         try {
-            $post = Post::with(['city','job'])->findOrFail($id);
+            $post = Post::with(['city','job','employer'])->findOrFail($id);
             $post->code = rand(1,50000)."CODE".rand(1,50000);
             $post->title = $request->title;
             $post->salary = $request->salary;
@@ -95,6 +95,7 @@ class PostController extends Controller
             $post->status = $request->status;
             $post->city_id = $request->city_id;
             $post->job_id = $request->job_id;
+            $post->employer_id = $request->employer_id;
             $post->save();
 
         }catch (\Exception $exception) {

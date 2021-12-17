@@ -27,9 +27,11 @@ class CreatePostsTable extends Migration
             $table->string('status')->default('1');
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('job_id');
+            $table->unsignedBigInteger('employer_id');
             $table->timestamps();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('job_id')->references('id')->on('jobs');
+            $table->foreign('employer_id')->references('id')->on('employers');
         });
     }
 

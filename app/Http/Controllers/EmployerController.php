@@ -65,6 +65,10 @@ class EmployerController extends Controller
             $employer->address_employer = $request->address_employer;
             $employer->city = $request->city;
             $employer->status = $request->status;
+            $employer->personnel_size = $request->personnel_size;
+            $employer->company_profile = $request->company_profile;
+            $employer->logo = $request->logo;
+            $employer->website = $request->website;
             $employer->save();
         }catch (\Exception $exception) {
             $data = [

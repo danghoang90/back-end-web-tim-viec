@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,3 +53,9 @@ Route::prefix('employers')->group(function () {
     Route::post('edit/{id}',[EmployerController::class,'edit']);
 });
 
+Route::prefix('search')->group(function () {
+    Route::post('post',[SearchController::class,'searchPost']);
+    Route::post('employer',[SearchController::class,'searchEmployer']);
+    Route::get('city',[SearchController::class,'getCity']);
+    Route::get('job',[SearchController::class,'getJob']);
+});

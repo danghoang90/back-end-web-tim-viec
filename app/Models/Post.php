@@ -22,4 +22,7 @@ class Post extends Model
     public function employer(){
         return $this->belongsTo(Employer::class);
     }
+    public function applyNow(){
+        return $this->hasMany(Applynow::class);
+    }
 }

@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('position');
             $table->string('experience');
             $table->date('expiration_date');
-            $table->string('description');
+            $table->longText('description');
             $table->string('quantity');
             $table->string('gender');
             $table->string('status')->default('1');

@@ -74,6 +74,7 @@ class CustomerController extends Controller
             'status' => 'success',
             'message' => 'Update Customer Thành Công!'
         ];
+
         return response()->json($data);
     }
 }

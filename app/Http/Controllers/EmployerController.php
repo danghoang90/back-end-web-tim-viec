@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateEmployerRequest;
 use App\Models\Employer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmployerController extends Controller
 {
@@ -77,6 +78,10 @@ class EmployerController extends Controller
             'status' => 'success',
             'message' => 'Update employer Thành Công!'
         ];
+        Mail::send('email_active_employer',['employer'=>$employer], function ($email) use ($employer) {
+            $email->from('danghoangjp1990@gmail.com','Web tim viec');
+            $email->to($employer->email,$employer->contact_person_name)->subject('Xác thực thành công!');
+        });
         return response()->json($data);
     }
 }

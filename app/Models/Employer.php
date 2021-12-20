@@ -20,6 +20,7 @@ class Employer extends Authenticatable
         'name_employer',
         'address_employer',
         'city'
+
     ];
 
     protected $hidden = [

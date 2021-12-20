@@ -34,6 +34,7 @@ class CreatePostRequest extends FormRequest
             'gender' => 'required',
             'city_id' => 'required',
             'job_id' => 'required',
+            'employer_id'=>'required',
         ];
     }
 }

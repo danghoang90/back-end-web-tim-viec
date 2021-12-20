@@ -11,6 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class Employer extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    protected $table = 'employers';
 
     protected $fillable = [
         'email',
@@ -27,6 +28,8 @@ class Employer extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 
 }

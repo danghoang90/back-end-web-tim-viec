@@ -19,4 +19,7 @@ class Post extends Model
     {
         return $this->belongsTo(City::class);
     }
+    public function employer(){
+        return $this->belongsTo(Employer::class);
+    }
 }

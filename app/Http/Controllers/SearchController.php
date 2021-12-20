@@ -13,13 +13,14 @@ class SearchController extends Controller
 {
     public function searchEmployer(Request $request)
     {
-        $employer = Employer::query()->with();
+        $employer = Employer::query();
         if ($request->name !="") {
             $employer->where('name_employer', 'LIKE','%' . $request->name . '%');
         }
-        $employers = $employer->get();
+        $employers = $employer->with('posts')->get();
         $data = [
             'status' => 'Success',
+            'message' => 'employer',
             'data' => $employers
         ];
         return response()->json($data);
@@ -28,21 +29,22 @@ class SearchController extends Controller
     public function searchPost(Request $request)
     {
 
-        $post = Post::query()->with(['city','job']);
+        $post = Post::with(['city','job','employer']);
 
-            if ($request->title !="") {
+            if ($request->title) {
                 $post->where('title', 'LIKE', '%' . $request->title . '%');
             }
-            if ($request->job_id !="") {
+            if ($request->job_id) {
                 $post->where('job_id', '=', $request->job_id );
             }
-            if ($request->city_id !="") {
+            if ($request->city_id) {
                 $post->where('city_id', '=', $request->city_id );
             }
 
              $posts =$post->get();
-            $data = [
+             $data = [
               'status' => 'Success',
+                'message' => 'post',
               'data' => $posts
             ];
         return response()->json($data);

@@ -33,7 +33,9 @@ class PostSeeder extends Seeder
         $post->status = 1;
         $post->city_id = 4;
         $post->job_id = 2;
+        $post->employer_id = 2;
         $post->save();
+
         $post = new Post();
         $post->code = 'SOS10';
         $post->title = 'Java';
@@ -47,6 +49,7 @@ class PostSeeder extends Seeder
         $post->status = 1;
         $post->city_id = 6;
         $post->job_id = 3;
+        $post->employer_id = 1;
         $post->save();
 
     }

@@ -57,16 +57,6 @@ class PostController extends Controller
         return response()->json($data);
     }
 
-    public function getCity()
-    {
-        $city = City::all();
-        return response()->json($city);
-    }
-    public function getJob()
-    {
-        $job = Job::all();
-        return response()->json($job);
-    }
 
     public function update($id)
     {

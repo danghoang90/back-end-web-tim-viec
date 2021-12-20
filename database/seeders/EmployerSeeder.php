@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Employer;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
 
 class EmployerSeeder extends Seeder
 {
@@ -14,6 +16,7 @@ class EmployerSeeder extends Seeder
      */
     public function run()
     {
+
         $employers = [
             [
                 "email" => "admin@gmail.com",
@@ -38,6 +41,7 @@ Chúng tôi tự hào về một nền văn hóa Doanh nghiệp đặc biệt g�
                 "email" => "loship@gmail.com",
                 "password" => "$2y$10$7MXhmHxrR7k4ioOlIiJUI.Aux.mYyM4nZveg0P5r49v5IBw2YHnb6",
                 "contact_person_name" => "Lozi",
+
                 "phone_number" => "0977460093",
                 "name_employer" => "Công Ty Cổ Phần Lozi Việt Nam (Loship)",
                 "address_employer" => "183 Nguyễn Văn Trỗi, P.10, Quận Phú Nhuận, Tp.Hồ Chí Minh",
@@ -47,7 +51,9 @@ Chúng tôi tự hào về một nền văn hóa Doanh nghiệp đặc biệt g�
                 "company_profile" => '
                 LOZI được đánh giá là một trong 5 Start Up Việt Nam đáng chú ý trong năm 2016. Bên cạnh đó LOZI còn được nhắc đến tại chương trình Cafe sáng, Thời sự, Nhịp sống và công nghệ, Cafe khởi nghiệp và chương trình Chuyến xe khởi nghiệp của đài VTV.
 
+
 Hiểu về Loship:
+
 
 Loship là một trong những dịch vụ vận chuyển đồ ăn lớn nhất Việt Nam, chúng tôi được tạo ra bởi người Việt Nam với sứ mệnh cải thiện các bữa ăn của người dùng Việt Nam được tốt hơn. Hiện tại, chúng tôi đang hoạt động trong 6 lĩnh vực: Giao đồ ăn; Giao rau, củ quả tươi; Giặt là; Giao thuốc; Giao bưu phẩm siêu tốc và giao thương mại điện tử một giờ. Chúng tôi sử dụng dữ liệu và công nghệ để cải thiện toàn bộ hoạt động thương mại đến vận chuyển trên cả Việt Nam. Làm việc với chính phủ, tài xế, và cộng đồng khách hàng, chúng tôi mong muốn giải quyết những vấn đề lớn của Việt Nam trong thương mại và lĩnh vực vận chuyển.
 
@@ -134,7 +140,6 @@ Những cá nhân trong iPOS.vn chính là cốt lõi tạo nên những giá tr
                ',
                 "logo" => "https://cdn.topcv.vn/140/company_logos/tap-doan-danh-khoi-6178aa457d4b9.jpg",
                 "website" => " http://careers.danhkhoi.com.vn/"
-
             ]
         ];
         try {

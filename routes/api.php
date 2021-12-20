@@ -4,6 +4,8 @@ use App\Http\Controllers\ApplynowController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\SearchController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,10 +53,19 @@ Route::prefix('employers')->group(function () {
     Route::get('update/{id}',[EmployerController::class,'update']);
     Route::post('edit/{id}',[EmployerController::class,'edit']);
 });
+
 Route::prefix('apply-now')->group(function () {
-    Route::get('list/{employer_id}',[ApplynowController::class,'getAll']);
-    Route::get('detail/{id}',[ApplynowController::class,'show']);
-    Route::put('update/{id}',[ApplynowController::class,'update']);
-    Route::post('create',[ApplynowController::class,'create']);
-    Route::delete('delete/{id}',[ApplynowController::class,'destroy']);
+    Route::get('list/{employer_id}', [ApplynowController::class, 'getAll']);
+    Route::get('detail/{id}', [ApplynowController::class, 'show']);
+    Route::put('update/{id}', [ApplynowController::class, 'update']);
+    Route::post('create', [ApplynowController::class, 'create']);
+    Route::delete('delete/{id}', [ApplynowController::class, 'destroy']);
+});
+
+Route::prefix('search')->group(function () {
+    Route::post('post',[SearchController::class,'searchPost']);
+    Route::post('employer',[SearchController::class,'searchEmployer']);
+    Route::get('city',[SearchController::class,'getCity']);
+    Route::get('job',[SearchController::class,'getJob']);
+
 });

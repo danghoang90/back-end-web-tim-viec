@@ -29,22 +29,22 @@ class SearchController extends Controller
     public function searchPost(Request $request)
     {
 
-        $post = Post::with(['city','job','employer']);
+        $post = Post::query();
 
             if ($request->title) {
                 $post->where('title', 'LIKE', '%' . $request->title . '%');
             }
-            if ($request->job_id) {
+            if ($request->job_id && $request->job_id !=1) {
                 $post->where('job_id', '=', $request->job_id );
             }
-            if ($request->city_id) {
+            if ($request->city_id && $request->city_id !=1) {
                 $post->where('city_id', '=', $request->city_id );
             }
 
-             $posts =$post->get();
+             $posts =$post->with(['employer','city','job','applyNow'])->get();
              $data = [
               'status' => 'Success',
-                'message' => 'post',
+                'message' => 'List post',
               'data' => $posts
             ];
         return response()->json($data);

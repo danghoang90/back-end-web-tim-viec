@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 
 use App\Models\Job;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class JobSeeder extends Seeder
@@ -15,6 +16,10 @@ class JobSeeder extends Seeder
      */
     public function run()
     {
+        $job = new Job();
+        $job->name = 'Tất Cả';
+        $job->id = '1';
+        $job->save();
         $jobs = [
             [
                 'name' => 'Nhân viên chính thức',
@@ -40,5 +45,7 @@ class JobSeeder extends Seeder
         } catch (\Throwable $th) {
 
         }
+
+
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\City;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class CitySeeder extends Seeder
@@ -14,6 +15,10 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
+        $city = new City();
+        $city->name = 'Toàn Quốc';
+        $city->id = '1';
+        $city->save();
         $cities = [
                         ["name" =>"Hồ Chí Minh"],
                         ["name" =>"Hà Nội"],
@@ -78,7 +83,7 @@ class CitySeeder extends Seeder
                         ["name" =>"Vĩnh Long"],
                         ["name" =>"Vĩnh Phúc"],
                         ["name" =>"Yên Bái"],
-                        ["name" =>"Toàn quốc"],
+
                         ["name" =>"Nước ngoài"]
         ];
 
@@ -89,5 +94,6 @@ class CitySeeder extends Seeder
         } catch (\Throwable $th) {
 
         }
+
     }
 }

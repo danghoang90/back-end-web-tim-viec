@@ -52,6 +52,7 @@ Route::prefix('employers')->group(function () {
     Route::get('delete/{id}',[EmployerController::class,'destroy']);
     Route::get('update/{id}',[EmployerController::class,'update']);
     Route::post('edit/{id}',[EmployerController::class,'edit']);
+    Route::get('show/{id}',[EmployerController::class,'show']);
 });
 
 Route::prefix('apply-now')->group(function () {

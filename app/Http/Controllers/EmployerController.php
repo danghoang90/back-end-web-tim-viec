@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateEmployerRequest;
 use App\Models\Employer;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -12,7 +13,7 @@ class EmployerController extends Controller
     public function list()
     {
         $employer = Employer::all();
-        return response()->json($data =[
+        return response()->json($data = [
             'status' => 'Success',
             'message' => 'List Employer',
             'data' => $employer
@@ -24,10 +25,10 @@ class EmployerController extends Controller
         $employer = Employer::find($id);
         if (!$employer) {
             $data = [
-                'status' =>'errors',
-                'message' =>'employer not exits'
+                'status' => 'errors',
+                'message' => 'employer not exits'
             ];
-        }else {
+        } else {
             $employer->delete();
             $data = [
                 'status' => 'Success',
@@ -43,10 +44,10 @@ class EmployerController extends Controller
         $employer = Employer::find($id);
         if (!$employer) {
             $data = [
-                'status' =>'errors',
-                'message' =>'employer not exits'
+                'status' => 'errors',
+                'message' => 'employer not exits'
             ];
-        }else {
+        } else {
             $data = [
                 'status' => 'success',
                 'data' => $employer
@@ -55,7 +56,7 @@ class EmployerController extends Controller
         return response()->json($data);
     }
 
-    public function edit(UpdateEmployerRequest $request,$id)
+    public function edit(UpdateEmployerRequest $request, $id)
     {
         try {
             $employer = Employer::find($id);
@@ -71,7 +72,7 @@ class EmployerController extends Controller
             $employer->logo = $request->logo;
             $employer->website = $request->website;
             $employer->save();
-        }catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             $data = [
                 'status' => 'error',
                 'message' => 'Không thể update employer'
@@ -82,10 +83,20 @@ class EmployerController extends Controller
             'status' => 'success',
             'message' => 'Update employer Thành Công!'
         ];
-        Mail::send('email_active_employer',['employer'=>$employer], function ($email) use ($employer) {
-            $email->from('danghoangjp1990@gmail.com','Web tim viec');
-            $email->to($employer->email,$employer->contact_person_name)->subject('Xác thực thành công!');
+        Mail::send('email_active_employer', ['employer' => $employer], function ($email) use ($employer) {
+            $email->from('danghoangjp1990@gmail.com', 'Web tim viec');
+            $email->to($employer->email, $employer->contact_person_name)->subject('Xác thực thành công!');
         });
         return response()->json($data);
+    }
+
+    public function show($id)
+    {
+        $posts = Post::where('status', 1)->where("employer_id", $id)->with('city','job','employer')->get();
+        $employer = Employer::find($id);
+       //$posts = $employer->posts()->where('status', 1)->get();
+        return response()->json([
+            'posts' => $posts,
+            'employer'=> $employer]);
     }
 }

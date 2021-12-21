@@ -34,8 +34,8 @@ class SearchController extends Controller
             if ($request->title) {
                 $post->where('title', 'LIKE', '%' . $request->title . '%');
             }
-            if ($request->job_id && $request->job_id !=1) {
-                $post->where('job_id', '=', $request->job_id );
+            if ($request->job_type_id && $request->job_type_id !=1) {
+                $post->where('job_type_id', '=', $request->job_id );
             }
             if ($request->city_id && $request->city_id !=1) {
                 $post->where('city_id', '=', $request->city_id );

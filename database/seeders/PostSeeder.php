@@ -23,6 +23,7 @@ class PostSeeder extends Seeder
         $post = new Post();
         $post->code = 'MSM10';
         $post->title = 'Nhân Viên Tư Vấn Du Học';
+        $post->majors = 'Tư Vấn Viên';
         $post->salary = '3-5 triệu';
         $post->position = 'Trưởng Phòng';
         $post->experience = '6 tháng';
@@ -41,6 +42,7 @@ class PostSeeder extends Seeder
         $post = new Post();
         $post->code = 'SOS10';
         $post->title = 'Trưởng Nhóm IT';
+        $post->majors = 'Lập Trình Viên';
         $post->salary = '5-10 triệu';
         $post->position = 'Trưởng Nhóm';
         $post->experience = '1 năm';
@@ -60,6 +62,7 @@ class PostSeeder extends Seeder
         $post = new Post();
         $post->code = 'STT10';
         $post->title = 'Nhân Viên Văn Phòng';
+        $post->majors = 'Hành Chính Nhân Sự';
         $post->salary = '5-10 triệu';
         $post->position = 'Nhân viên';
         $post->experience = '1 năm';
@@ -80,6 +83,7 @@ class PostSeeder extends Seeder
         $post = new Post();
         $post->code = 'STK10';
         $post->title = 'Giám Đốc Kinh Doanh Dự Án';
+        $post->majors = 'Nhân Viên Kinh Doanh';
         $post->salary = '5-10 triệu';
         $post->position = 'Giám đốc';
         $post->experience = '1 năm';

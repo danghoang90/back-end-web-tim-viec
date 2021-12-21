@@ -70,6 +70,7 @@ class EmployerController extends Controller
             $employer->personnel_size = $request->personnel_size;
             $employer->company_profile = $request->company_profile;
             $employer->logo = $request->logo;
+            $employer->banner = $request->banner;
             $employer->website = $request->website;
             $employer->save();
         } catch (\Exception $exception) {

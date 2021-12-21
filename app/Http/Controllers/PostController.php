@@ -30,6 +30,7 @@ class PostController extends Controller
             $post = new Post();
             $post->code = rand(1,50000)."CODE".rand(1,50000);
             $post->title = $request->title;
+            $post->majors = $request->majors;
             $post->salary = $request->salary;
             $post->position = $request->position;
             $post->experience = $request->experience;
@@ -39,7 +40,7 @@ class PostController extends Controller
             $post->gender = $request->gender;
             $post->status = $request->status;
             $post->city_id = $request->city_id;
-            $post->job_id = $request->job_id;
+            $post->job_type_id = $request->job_type_id;
             $post->employer_id = $request->employer_id;
             $post->save();
 
@@ -70,11 +71,11 @@ class PostController extends Controller
 
     public function edit(CreatePostRequest $request ,$id)
     {
-
         try {
             $post = Post::with(['city','job','employer'])->findOrFail($id);
             $post->code = rand(1,50000)."CODE".rand(1,50000);
             $post->title = $request->title;
+            $post->majors = $request->majors;
             $post->salary = $request->salary;
             $post->position = $request->position;
             $post->experience = $request->experience;
@@ -84,7 +85,7 @@ class PostController extends Controller
             $post->gender = $request->gender;
             $post->status = $request->status;
             $post->city_id = $request->city_id;
-            $post->job_id = $request->job_id;
+            $post->job_type_id = $request->job_type_id;
             $post->employer_id = $request->employer_id;
             $post->save();
 

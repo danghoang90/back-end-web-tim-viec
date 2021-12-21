@@ -34,6 +34,7 @@ Quy mô: Từ 5.000-10.000 người.
 
 Chúng tôi tự hào về một nền văn hóa Doanh nghiệp đặc biệt gắn liền với sự phát triển bản thân và chia sẻ lợi ích – gánh vác trách nhiệm xã hội trên nền tảng: “Trung thực – Cộng đồng – Phát triển"',
                 "logo" => "https://cdn.topcv.vn/140/company_logos/cong-ty-co-phan-tap-doan-hoa-sen-5abef8f2b83d1_rs.jpg",
+                "banner" => "https://intphcm.com/data/upload/banner-tuyen-dung.jpg",
                 "website" => "https://www.hoasen.vn/"
 
             ],
@@ -59,6 +60,7 @@ Loship là một trong những dịch vụ vận chuyển đồ ăn lớn nhất
 
 ',
                 "logo" => "https://cdn.topcv.vn/135/company_logos/cong-ty-co-phan-lozi-viet-nam-loship-6099feb5e279f.jpg",
+                "banner" => "https://printgo.vn/uploads/media/796109/banner-tuyen-dung-19_1632972669.jpg",
                 "website" => "https://www.loship.vn/"
 
             ],
@@ -82,6 +84,7 @@ Với mục tiêu đưa các sản phẩm và dịch vụ công nghệ cao của
 Chiến lược đầu tư của CMC Global được định vị có phần khác biệt so với các công ty outsourcing cũng ngành ở thị trường Việt Nam. CMC Global sẽ chú trọng vào việc phát triển nguồn lực, chuẩn hóa qui trình cung cấp dịch vụ và phát triển phần mềm, đào tạo nhân sự chất lượng cao, cùng lúc thu hút số lượng lớn các nhân tài trong lĩnh vực công nghệ thông tin. Đồng thời, CMC Global cũng sẽ là đại diện, cầu nối cho các công ty thành viên của CMC trong việc cung cấp các giải pháp và dịch vụ tích hợp trọn gói ra thế giới.
 ',
                 "logo" => "https://static.topcv.vn/company_logos/cong-ty-tnhh-cmc-global-1d94bf2be044cc832cd72d2f4f8fad66-5e72d0edadcfb.jpg",
+                "banner" => "https://printgo.vn/uploads/media/796109/banner-tuyen-dung-18_1632972682.jpg",
                 "website" => "http://cmcglobal.com.vn/"
 
             ],
@@ -103,6 +106,7 @@ Chiến lược đầu tư của CMC Global được định vị có phần kh�
 Những cá nhân trong iPOS.vn chính là cốt lõi tạo nên những giá trị cho doanh nghiệp và xã hội. Mỗi nhân viên đều có cơ hội cống hiến, đưa tiếng nói riêng hướng đến mục đích chung tạo ra một môi trường công bằng, thân thiện và thử thách.
 ',
                 "logo" => "https://www.topcv.vn/brand/ipos",
+                "banner" => "https://printgo.vn/uploads/media/796109/banner-tuyen-dung-15_1632972719.png",
                 "website" => "http://iPOS.vn/"
 
             ],
@@ -121,6 +125,7 @@ Những cá nhân trong iPOS.vn chính là cốt lõi tạo nên những giá tr
 
                ',
                 "logo" => "https://cdn.topcv.vn/140/company_logos/tap-doan-danh-khoi-6178aa457d4b9.jpg",
+                "banner" => "https://printgo.vn/uploads/media/796109/banner-tuyen-dung-13_1632972743.png",
                 "website" => " http://careers.danhkhoi.com.vn/"
 
             ],
@@ -139,6 +144,7 @@ Những cá nhân trong iPOS.vn chính là cốt lõi tạo nên những giá tr
 
                ',
                 "logo" => "https://cdn.topcv.vn/140/company_logos/tap-doan-danh-khoi-6178aa457d4b9.jpg",
+                "banner" => "https://printgo.vn/uploads/media/796109/banner-tuyen-dung-20_1632972658.jpg",
                 "website" => " http://careers.danhkhoi.com.vn/"
             ]
         ];

@@ -26,6 +26,7 @@ class CreateTableEmployersTable extends Migration
             $table->string('personnel_size')->nullable()->comment('Quy mô nhân sự');
             $table->longText('company_profile')->nullable()->comment('Sơ lược về công ty');
             $table->string('logo')->nullable();
+            $table->string('banner')->nullable();
             $table->string('website')->nullable()->comment('website');
             $table->timestamps();
         });

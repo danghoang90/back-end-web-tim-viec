@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->string('title');
+            $table->string('majors');
             $table->string('salary');
             $table->string('position');
             $table->string('experience');

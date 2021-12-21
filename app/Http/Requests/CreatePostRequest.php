@@ -25,6 +25,7 @@ class CreatePostRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'majors' => 'required',
             'salary' => 'required',
             'position' => 'required',
             'experience' => 'required',
@@ -33,7 +34,7 @@ class CreatePostRequest extends FormRequest
             'quantity' => 'required',
             'gender' => 'required',
             'city_id' => 'required',
-            'job_id' => 'required',
+            'job_type_id' => 'required',
             'employer_id'=>'required',
         ];
     }

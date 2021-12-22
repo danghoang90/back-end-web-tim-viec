@@ -231,7 +231,7 @@ class PostSeeder extends Seeder
         $post->status = 1;
         $post->city_id = 19;
         $post->job_type_id = 2;
-        $post->employer_id = 1;
+        $post->employer_id = 5;
         $post->save();
     }
 }

@@ -105,7 +105,7 @@ Chiến lược đầu tư của CMC Global được định vị có phần kh�
 
 Những cá nhân trong iPOS.vn chính là cốt lõi tạo nên những giá trị cho doanh nghiệp và xã hội. Mỗi nhân viên đều có cơ hội cống hiến, đưa tiếng nói riêng hướng đến mục đích chung tạo ra một môi trường công bằng, thân thiện và thử thách.
 ',
-                "logo" => "https://www.topcv.vn/brand/ipos",
+                "logo" => "https://cdn.topcv.vn/140/company_logos/cong-ty-tnhh-da-thuoc-weitai-608623d173d94.jpg",
                 "banner" => "https://printgo.vn/uploads/media/796109/banner-tuyen-dung-15_1632972719.png",
                 "website" => "http://iPOS.vn/"
 

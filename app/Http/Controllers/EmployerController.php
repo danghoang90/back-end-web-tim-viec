@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateEmployerRequest;
 use App\Models\Employer;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class EmployerController extends Controller
@@ -99,5 +100,14 @@ class EmployerController extends Controller
         return response()->json([
             'posts' => $posts,
             'employer'=> $employer]);
+    }
+    public function topEmployer(){
+        $employers = DB::table('applynow')
+            ->join('employers','employer_id','=','employers.id')
+            ->select('employers.id','employers.name_employer','employers.logo')
+            ->groupBy('employer_id')
+            ->limit(8)
+            ->get();
+        return response($employers);
     }
 }
